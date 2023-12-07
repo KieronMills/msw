@@ -74,7 +74,41 @@ var import_msw = require("msw"), handlers = [
       description: "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
       imageUrl: "https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_FMjpg_UY2048_.jpg"
     }
-  ]))
+  ])),
+  import_msw.http.get("https://api.example.com/movies/:slug", ({ params }) => {
+    let { slug } = params;
+    return slug === "the-shawshank-redemption" ? import_msw.HttpResponse.json(
+      {
+        id: "8061539f-f0d6-4187-843f-a25aadf948eb",
+        slug: "the-shawshank-redemption",
+        title: "The Shawshank Redemption",
+        category: "Drama",
+        releasedAt: /* @__PURE__ */ new Date("1994-10-14"),
+        description: "Over the course of several years, two convicts form a friendship, seeking consolation and, eventually, redemption through basic compassion.",
+        imageUrl: "https://m.media-amazon.com/images/M/MV5BNDE3ODcxYzMtY2YzZC00NmNlLWJiNDMtZDViZWM2MzIxZDYwXkEyXkFqcGdeQXVyNjAwNDUxODI@._V1_FMjpg_UX1200_.jpg"
+      }
+    ) : slug === "the-godfather" ? import_msw.HttpResponse.json(
+      {
+        id: "3342a4f2-144b-4cef-8041-676affedfbb8",
+        slug: "the-godfather",
+        title: "The Godfather",
+        category: "Drama",
+        releasedAt: /* @__PURE__ */ new Date("1972-03-24"),
+        description: "Don Vito Corleone, head of a mafia family, decides to hand over his empire to his youngest son Michael. However, his decision unintentionally puts the lives of his loved ones in grave danger.",
+        imageUrl: "https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_FMjpg_UY1982_.jpg"
+      }
+    ) : slug === "the-dark-knight" ? import_msw.HttpResponse.json(
+      {
+        id: "b2b7e2d9-8b2e-4b7a-9b8a-7f9a0d7f7e0e",
+        title: "The Dark Knight",
+        slug: "the-dark-knight",
+        category: "Action",
+        releasedAt: /* @__PURE__ */ new Date("2008-07-18"),
+        description: "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
+        imageUrl: "https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_FMjpg_UY2048_.jpg"
+      }
+    ) : new import_msw.HttpResponse("Not found", { status: 404 });
+  })
 ];
 
 // app/mocks/node.ts
@@ -1938,7 +1972,7 @@ function GridLayout() {
 }
 
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { entry: { module: "/build/entry.client-RN55WQAZ.js", imports: ["/build/_shared/chunk-ZWGWGGVF.js", "/build/_shared/chunk-GIAAE3CH.js", "/build/_shared/chunk-HVQY2JRW.js", "/build/_shared/chunk-XU7DNSPJ.js", "/build/_shared/chunk-TT2QRQMT.js", "/build/_shared/chunk-UWV35TSL.js", "/build/_shared/chunk-BOXFZXVX.js", "/build/_shared/chunk-PNG5AS42.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-63JM5XQE.js", imports: void 0, hasAction: !1, hasLoader: !1, hasErrorBoundary: !1 }, "routes/_grid": { id: "routes/_grid", parentId: "root", path: void 0, index: void 0, caseSensitive: void 0, module: "/build/routes/_grid-ZYAYVSI4.js", imports: ["/build/_shared/chunk-APAMIOVW.js", "/build/_shared/chunk-YDY4XXVM.js"], hasAction: !1, hasLoader: !0, hasErrorBoundary: !1 }, "routes/_grid._index": { id: "routes/_grid._index", parentId: "routes/_grid", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/_grid._index-JCHNOALY.js", imports: ["/build/_shared/chunk-RUEUF7EI.js"], hasAction: !1, hasLoader: !0, hasErrorBoundary: !0 }, "routes/_grid.movies.$slug": { id: "routes/_grid.movies.$slug", parentId: "routes/_grid", path: "movies/:slug", index: void 0, caseSensitive: void 0, module: "/build/routes/_grid.movies.$slug-FCTBJXM4.js", imports: ["/build/_shared/chunk-L2YQYUIK.js", "/build/_shared/chunk-G7CHZRZX.js", "/build/_shared/chunk-RUEUF7EI.js"], hasAction: !0, hasLoader: !0, hasErrorBoundary: !1 }, "routes/_grid.movies._index": { id: "routes/_grid.movies._index", parentId: "routes/_grid", path: "movies", index: !0, caseSensitive: void 0, module: "/build/routes/_grid.movies._index-QUL3QDV3.js", imports: void 0, hasAction: !1, hasLoader: !1, hasErrorBoundary: !1 }, "routes/_grid.series": { id: "routes/_grid.series", parentId: "routes/_grid", path: "series", index: void 0, caseSensitive: void 0, module: "/build/routes/_grid.series-YN4A3SMN.js", imports: void 0, hasAction: !1, hasLoader: !1, hasErrorBoundary: !1 }, "routes/_grid.sign-in": { id: "routes/_grid.sign-in", parentId: "routes/_grid", path: "sign-in", index: void 0, caseSensitive: void 0, module: "/build/routes/_grid.sign-in-EVITWNFI.js", imports: ["/build/_shared/chunk-G7CHZRZX.js"], hasAction: !0, hasLoader: !1, hasErrorBoundary: !1 }, "routes/movies.$slug.watch": { id: "routes/movies.$slug.watch", parentId: "root", path: "movies/:slug/watch", index: void 0, caseSensitive: void 0, module: "/build/routes/movies.$slug.watch-HV3LN5PG.js", imports: ["/build/_shared/chunk-YDY4XXVM.js", "/build/_shared/chunk-G7CHZRZX.js"], hasAction: !1, hasLoader: !0, hasErrorBoundary: !1 }, "routes/sign-out": { id: "routes/sign-out", parentId: "root", path: "sign-out", index: void 0, caseSensitive: void 0, module: "/build/routes/sign-out-HSK2T35Q.js", imports: void 0, hasAction: !0, hasLoader: !1, hasErrorBoundary: !1 } }, version: "6d2492b0", hmr: { runtime: "/build/_shared/chunk-TT2QRQMT.js", timestamp: 1701826358198 }, url: "/build/manifest-6D2492B0.js" };
+var assets_manifest_default = { entry: { module: "/build/entry.client-7T23ZXZF.js", imports: ["/build/_shared/chunk-ZWGWGGVF.js", "/build/_shared/chunk-GIAAE3CH.js", "/build/_shared/chunk-HVQY2JRW.js", "/build/_shared/chunk-XU7DNSPJ.js", "/build/_shared/chunk-TT2QRQMT.js", "/build/_shared/chunk-UWV35TSL.js", "/build/_shared/chunk-BOXFZXVX.js", "/build/_shared/chunk-PNG5AS42.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-63JM5XQE.js", imports: void 0, hasAction: !1, hasLoader: !1, hasErrorBoundary: !1 }, "routes/_grid": { id: "routes/_grid", parentId: "root", path: void 0, index: void 0, caseSensitive: void 0, module: "/build/routes/_grid-ZYAYVSI4.js", imports: ["/build/_shared/chunk-APAMIOVW.js", "/build/_shared/chunk-YDY4XXVM.js"], hasAction: !1, hasLoader: !0, hasErrorBoundary: !1 }, "routes/_grid._index": { id: "routes/_grid._index", parentId: "routes/_grid", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/_grid._index-JCHNOALY.js", imports: ["/build/_shared/chunk-RUEUF7EI.js"], hasAction: !1, hasLoader: !0, hasErrorBoundary: !0 }, "routes/_grid.movies.$slug": { id: "routes/_grid.movies.$slug", parentId: "routes/_grid", path: "movies/:slug", index: void 0, caseSensitive: void 0, module: "/build/routes/_grid.movies.$slug-FCTBJXM4.js", imports: ["/build/_shared/chunk-L2YQYUIK.js", "/build/_shared/chunk-G7CHZRZX.js", "/build/_shared/chunk-RUEUF7EI.js"], hasAction: !0, hasLoader: !0, hasErrorBoundary: !1 }, "routes/_grid.movies._index": { id: "routes/_grid.movies._index", parentId: "routes/_grid", path: "movies", index: !0, caseSensitive: void 0, module: "/build/routes/_grid.movies._index-QUL3QDV3.js", imports: void 0, hasAction: !1, hasLoader: !1, hasErrorBoundary: !1 }, "routes/_grid.series": { id: "routes/_grid.series", parentId: "routes/_grid", path: "series", index: void 0, caseSensitive: void 0, module: "/build/routes/_grid.series-YN4A3SMN.js", imports: void 0, hasAction: !1, hasLoader: !1, hasErrorBoundary: !1 }, "routes/_grid.sign-in": { id: "routes/_grid.sign-in", parentId: "routes/_grid", path: "sign-in", index: void 0, caseSensitive: void 0, module: "/build/routes/_grid.sign-in-EVITWNFI.js", imports: ["/build/_shared/chunk-G7CHZRZX.js"], hasAction: !0, hasLoader: !1, hasErrorBoundary: !1 }, "routes/movies.$slug.watch": { id: "routes/movies.$slug.watch", parentId: "root", path: "movies/:slug/watch", index: void 0, caseSensitive: void 0, module: "/build/routes/movies.$slug.watch-HV3LN5PG.js", imports: ["/build/_shared/chunk-YDY4XXVM.js", "/build/_shared/chunk-G7CHZRZX.js"], hasAction: !1, hasLoader: !0, hasErrorBoundary: !1 }, "routes/sign-out": { id: "routes/sign-out", parentId: "root", path: "sign-out", index: void 0, caseSensitive: void 0, module: "/build/routes/sign-out-HSK2T35Q.js", imports: void 0, hasAction: !0, hasLoader: !1, hasErrorBoundary: !1 } }, version: "636fa342", hmr: { runtime: "/build/_shared/chunk-TT2QRQMT.js", timestamp: 1701907287631 }, url: "/build/manifest-636FA342.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var mode = "development", assetsBuildDirectory = "public/build", future = {}, publicPath = "/build/", entry = { module: entry_server_exports }, routes = {

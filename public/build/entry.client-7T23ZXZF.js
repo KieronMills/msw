@@ -34,7 +34,7 @@ async function enableApiMocking() {
   if (false) {
     return;
   }
-  const { worker } = await import("/build/_shared/browser-CBR3UMPW.js");
+  const { worker } = await import("/build/_shared/browser-KNBGPQND.js");
   await worker.start();
 }
 enableApiMocking().then(() => {
@@ -46,4 +46,4 @@ enableApiMocking().then(() => {
     }, this));
   });
 });
-//# sourceMappingURL=/build/entry.client-RN55WQAZ.js.map
+//# sourceMappingURL=/build/entry.client-7T23ZXZF.js.map
